@@ -27,10 +27,10 @@
         for (var i = 0; i < 2; i++){
             basicTime = basicTime + timeNow[i];
         } 
-
+debugger;
         currentTime.twentyFourHour = ridNumbersAfterDecimal(timeNow);
         currentTime.twelveHour = moment(currentTime.twentyFourHour, ["HH.mm"]).format("hh:mm A");
-        // currentTime.twelveHour = ridFirstZero(currentTime.twelveHour);
+        currentTime.twelveHour = ridFirstZero(currentTime.twelveHour);
         //12 hour time is handled by packages.js
     }
 
