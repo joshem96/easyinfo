@@ -1,0 +1,87 @@
+<html>
+<head> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="CSS_Files/style.css"></link>
+  
+    <!-- <script src="Javascript_Files/packages.js" ></script> -->
+
+</head>
+<title>easyinfo</title>
+<body>
+
+    <!-- MAIN AREA -->
+    <main>
+        <div class="filter"></div>  
+        <img id="nasaImage" alt="nasa image" src="Assets/space_backup.jpeg">
+        <header style = "border: transparent;">
+            <span style="display: None;">easyinfo</span>
+
+            <!-- USER SETTINGS -->
+            <section id ="userSettings">
+                <div class="togglesWrap">
+                    <!-- MEASUREMENT TOGGLE -->
+                    <aside id="measurementToggleWrap">
+                        <label class="switch measurementLabel" id ="switchLabel">
+                            <input class="switch-input" type="checkbox" />
+                            <span style="pointer-events: none;" class="switch-label" data-on="imperial" data-off="metric
+                            "></span> 
+                            <span class="switch-handle" id="measurement"></span> 
+                        </label>
+                    </aside>
+
+                    <!-- TIME TOGGLE -->
+                    <aside id="timeToggleWrap">
+                        <label class="switch timeLabel" id ="switchLabel">
+                            <input class="switch-input" type="checkbox" />
+                            <span style="pointer-events: none;" class="switch-label" data-on="24 Hour" data-off="12 Hour
+                            "></span> 
+                            <span class="switch-handle" id="time"></span> 
+                        </label>
+                    </aside>
+                </div>
+            </section>
+            
+        </header>
+        <!-- FILTER ON TOP OF BACKGROUND IMAGE -->
+
+        <aside id="topbox">
+            <!-- weather info -->
+            <div id = "topboxLeft" style ="border: transparent">
+                <aside id ="weatherTempContainer">
+                    <img src ="" id="weatherIcon"></img>
+                    <span id="tempvalue"></span>
+                </aside>
+            </div>
+            <div id = "topboxRight" style ="border: transparent">
+                <ul>
+                    <li class ="tempAsset1" style="margin-bottom: 6px;"> <span id="windValue"></span> </li>
+                    <li class ="tempAsset2"> <span id="humidityValue"></span> </li>
+                </ul>
+            </div>
+        </aside>
+        
+        <aside id ="btmbox">
+            <div id = "btmboxLeft" style ="border: transparent">
+                <ul>
+                    <li class="tempAsset1"> <span id="timeValue"></span> </li>
+                    <li class="tempAsset2" style="margin-top: -15px;"> <span id="dateValue"></span> </li>
+                </ul>
+            </div>
+            <div id = "btmboxRight" style ="border: transparent"><p style ="text-align: center"></p></div>  
+        </aside>
+    
+    </main>
+
+
+<script src="Javascript_Files/globalVariables&Code.js"></script>
+<script src="Javascript_Files/timeAndLocation.js"></script>
+<script src="Javascript_Files/weather.js"></script>
+<script src="Javascript_Files/functionsOnLoad.js"></script>
+<script src="Javascript_Files/API_Refresh.js"></script>
+<!-- <script src="node_modules/.js"></script> -->
+<!-- <script src="Javascript_Files/bundle.js" ></script>  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js" integrity="sha512-rmZcZsyhe0/MAjquhTgiUcb4d9knaFc7b5xAfju483gbEXTkeJRUMIPk6s3ySZMYUHEcjKbjLjyddGWMrNEvZg==" crossorigin="anonymous"></script>
+<!-- <script src="../Code Library/Number_Related_Code.js"></script> --> 
+</body>
+</html>

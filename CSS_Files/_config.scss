@@ -1,0 +1,33 @@
+
+$fontColor: rgba(243, 243, 243, 0.938);
+$testHeader: orange;
+$gridStyle: 2px solid red;
+
+@mixin boxStyle($flexDirection){
+    border: $gridStyle;
+    display: flex;
+    flex-direction: $flexDirection;
+    height: 100%;
+    justify-content: center;
+    width: 50%;
+  }
+  
+  @mixin flexType($flexDirection){
+    display: flex;
+    flex-direction: $flexDirection;
+  }
+
+  @mixin listStyles(){
+    list-style-type: none;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @font-face {
+    font-family: nunito;
+    src: url("../../../Tools_Documentation_etc/Fonts/Nunito/Nunito-Regular.ttf");
+    font-weight: normal;
+  }
