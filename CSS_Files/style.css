@@ -357,6 +357,7 @@ main #btmboxRight {
   text-transform: uppercase;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  text-shadow: 0 1px rgba(255, 255, 255, 0.4);
 }
 
 .switch-label:before, .switch-label:after {
@@ -376,7 +377,6 @@ main #btmboxRight {
   content: attr(data-off);
   right: 11px;
   /* color: #aaaaaa; */
-  text-shadow: 0 1px rgba(255, 255, 255, 0.5);
 }
 
 .switch-label:after {
@@ -384,7 +384,6 @@ main #btmboxRight {
   content: attr(data-on);
   left: 11px;
   /* color: #FFFFFF; */
-  text-shadow: 0 1px rgba(0, 0, 0, 0.2);
   opacity: 0;
 }
 
