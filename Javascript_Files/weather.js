@@ -28,7 +28,7 @@
     function getWeather(){
 
         //fetch MERTRIC WEATHER weather and location data
-        weatherData.metric = fetch(" ")
+        weatherData.metric = fetch("https://api.openweathermap.org/data/2.5/weather?id=2158177&APPID=554c812328e8a00bd093b1dace78d432&units=metric")
             .then( res => res.json())
             .then( res => {
 
