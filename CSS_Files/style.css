@@ -11,13 +11,39 @@
 }
 
 html, body {
-  background: #bd32bd;
+  background: #2e2c2e;
   color: rgba(243, 243, 243, 0.938);
   font-size: 1.5em;
   height: 100%;
   margin: 0;
   top: 0;
   font-family: nunito, sans-serif;
+}
+
+html input[type=text]::-ms-clear, body input[type=text]::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+html input[type=text]::-ms-reveal, body input[type=text]::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+html input[type="search"]::-webkit-search-decoration,
+html input[type="search"]::-webkit-search-cancel-button,
+html input[type="search"]::-webkit-search-results-button,
+html input[type="search"]::-webkit-search-results-decoration, body input[type="search"]::-webkit-search-decoration,
+body input[type="search"]::-webkit-search-cancel-button,
+body input[type="search"]::-webkit-search-results-button,
+body input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+
+.on {
+  display: block !important;
 }
 
 main {
@@ -80,7 +106,7 @@ main header section {
   width: auto;
 }
 
-main header section:hover {
+main header section:hover, main header .fakeSectionHover {
   -webkit-box-shadow: 0.2px 0.9px 4.75px 0.6px darkgrey;
           box-shadow: 0.2px 0.9px 4.75px 0.6px darkgrey;
   /*-0.5px 0.5px 3.5px 1px darkgrey;*/
@@ -89,10 +115,10 @@ main header section:hover {
   border-top: transparent;
   -webkit-filter: brightness(1);
           filter: brightness(1);
-  height: 88px;
+  height: 127px;
 }
 
-main header section:hover .togglesWrap {
+main header section:hover .togglesWrap, main header .fakeSectionHover .togglesWrap {
   margin-top: 0;
 }
 
@@ -105,9 +131,11 @@ main header section .togglesWrap {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  font-size: 11px;
   /* width: 120; */
   padding: 0px 6px;
   /* justify-content: space-between; */
+  text-shadow: 0 1px rgba(255, 255, 255, 0.4);
   -webkit-transition: all .5s ease;
   transition: all .5s ease;
   /* Transitions
@@ -124,8 +152,70 @@ main header section .togglesWrap #measurementToggleWrap {
 }
 
 main header section .togglesWrap #timeToggleWrap {
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   margin-top: 2px;
+}
+
+main header section .togglesWrap #locationWrap {
+  text-shadow: 0 1px rgba(255, 255, 255, 0.4);
+  color: #8bce8b;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+}
+
+main header section .togglesWrap #locationWrap .locationNode {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 25;
+  left: 31px;
+  margin-top: -22.5px;
+  opacity: 1;
+  overflow: hidden;
+  pointer-events: none;
+  position: relative;
+  text-align: center;
+  -webkit-transition: opacity .3s;
+  transition: opacity .3s;
+  width: auto;
+  word-wrap: break-word;
+}
+
+main header section .togglesWrap #locationWrap .locationNode::first-letter {
+  text-transform: uppercase;
+}
+
+main header section .togglesWrap #locationWrap .locationSelector {
+  background: transparent;
+  border: none;
+  color: #8bce8b;
+  display: none;
+  margin-top: -25.4px;
+  margin-top: -31.8px;
+  margin-left: 6px;
+  outline: none;
+  opacity: 0;
+  -webkit-transition: opacity .3s;
+  transition: opacity .3s;
+  right: -12px;
+  width: 71px;
+  z-index: 5000000;
+  text-shadow: 0 1px rgba(255, 255, 255, 0.4);
+  color: #8bce8b;
+}
+
+main header section .togglesWrap #locationWrap .locationSelector::first-letter {
+  text-transform: uppercase;
+}
+
+main header section .togglesWrap #userLocation {
+  margin-bottom: 6px;
 }
 
 main .filter {
@@ -214,6 +304,9 @@ main #topboxRight {
   border-top: 1px solid red;
   font-size: 28px;
   text-align: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 main #topboxRight ul {
@@ -230,6 +323,7 @@ main #topboxRight ul {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin: 0;
 }
 
 main #topboxRight ul .tempAsset1 {
@@ -315,6 +409,10 @@ main #btmboxRight {
           box-sizing: border-box;
 }
 
+main #btmboxRight #currentLocation::first-letter {
+  text-transform: uppercase;
+}
+
 .switch {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
@@ -350,14 +448,11 @@ main #btmboxRight {
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
   display: block;
-  font-size: 10px;
   height: inherit;
   pointer-events: none;
-  position: relative;
   text-transform: uppercase;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  text-shadow: 0 1px rgba(255, 255, 255, 0.4);
 }
 
 .switch-label:before, .switch-label:after {

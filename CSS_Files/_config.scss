@@ -2,6 +2,13 @@
 $fontColor: rgba(243, 243, 243, 0.938);
 $testHeader: orange;
 $gridStyle: 2px solid red;
+$spaceGreen: #8bce8b;
+
+
+@mixin terminalFontStyle(){
+  text-shadow: 0 1px rgba(255, 255, 255, 0.4);
+  color: $spaceGreen; 
+}
 
 @mixin boxStyle($flexDirection){
     border: $gridStyle;

@@ -20,6 +20,7 @@
             <!-- USER SETTINGS -->
             <section id ="userSettings">
                 <div class="togglesWrap">
+                    
                     <!-- MEASUREMENT TOGGLE -->
                     <aside id="measurementToggleWrap">
                         <label class="switch measurementLabel" id ="switchLabel">
@@ -39,6 +40,20 @@
                             <span class="switch-handle" id="time"></span> 
                         </label>
                     </aside>
+ 
+                    <!-- LOCATION TOGGLE -->
+                    <aside id="userLocationWrap">
+                        <label class="switch locationLabel" id ="switchLabel">
+                            <input class="switch-input" type="checkbox" />
+                            <span style="pointer-events: none;" class="switch-label" data-on="" data-off=""></span> 
+                            <span class="switch-handle" id="time"></span> 
+                            <div id="locationWrap">
+                                <input type="search" class="locationSelector" placeholder="Location" autofocus></input>
+                                <!-- <div class="locationNodeWrap on"> --><span class="locationNode on">Location</span> <!--</div> -->
+                            </div>
+                        </label> 
+                    </aside>
+
                 </div>
             </section>
             
@@ -68,7 +83,9 @@
                     <li class="tempAsset2" style="margin-top: -15px;"> <span id="dateValue"></span> </li>
                 </ul>
             </div>
-            <div id = "btmboxRight" style ="border: transparent"><p style ="text-align: center"></p></div>  
+            <div id = "btmboxRight" style ="border: transparent">
+                <span style ="text-align: center" id="currentLocation"></span>
+            </div>  
         </aside>
     
     </main>

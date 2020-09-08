@@ -1,6 +1,7 @@
 
 //variables, functions and mixins
 @import "_config";
+
 @font-face {
   font-family: nunito;
   // src: url("../../../Tools_Documentation_etc/Fonts/Nunito/Nunito-Regular.ttf");
@@ -9,16 +10,34 @@
 }
 
 html,body {
-    background: rgb(189, 50, 189);
+    background: rgb(46, 44, 46);
     color: $fontColor;
     font-size: 1.5em;
     height: 100%;
     margin: 0;
     top:0;
     font-family: nunito, sans-serif;
+    input[type=text]::-ms-clear {  display: none; width : 0; height: 0; }
+    input[type=text]::-ms-reveal {  display: none; width : 0; height: 0; }
+    input[type="search"]::-webkit-search-decoration,
+    input[type="search"]::-webkit-search-cancel-button,
+    input[type="search"]::-webkit-search-results-button,
+    input[type="search"]::-webkit-search-results-decoration { display: none; }
 
-} 
+}
+
+//TOOLS AND OTHER STYLES
+.on {
+  display: block !important;
+}
+
+//forces section hover on
+.fakeSectionHover{
+  @extend section:hover;
+}
+
   
+//the box thats encapsulating everything
 main {
   @include flexType(column);
   float: right;
@@ -45,7 +64,7 @@ main {
       background: linear-gradient(296deg, #6d6a6a, #8c8585);
       border-color: transparent;
       border-radius: 0px 0px 8px 8px;
-      color: #8bce8b;
+      color: $spaceGreen;
       display: flex;
       filter: brightness(.6);
       font-family: sans-serif;
@@ -64,9 +83,12 @@ main {
         border-style: groove;
         border-top: transparent;
         filter: brightness(1.0);
-        height: 88px;
+        height: 127px;
         // height: auto;
       }
+
+
+
 
       &:hover .togglesWrap {
         margin-top: 0;
@@ -77,9 +99,11 @@ main {
         margin-top: 8.5px;
         display: flex;
         flex-direction: column;
+        font-size: 11px;
         /* width: 120; */
         padding: 0px 6px;
         /* justify-content: space-between; */
+        text-shadow: 0 1px rgba(255, 255, 255, 0.4);
         transition: all .5s ease;
         &:hover {
           margin-top: 0;
@@ -91,10 +115,61 @@ main {
         }
 
         #timeToggleWrap {
-          margin-bottom: 6px;
+          margin-bottom: 4px;
           margin-top: 2px;
         }
 
+        #locationWrap {
+          @include terminalFontStyle();
+          display: flex;
+          position: absolute;
+          
+        
+          .locationNode {
+            display: flex;
+            flex-direction: column;
+            height: 25;
+            left: 31px;
+            margin-top: -22.5px;
+            opacity: 1;
+            overflow: hidden;
+            pointer-events: none;
+            position: relative;
+            text-align: center;
+            transition: opacity .3s;
+            width: auto; //67px;
+            word-wrap: break-word;
+
+            &::first-letter {
+              text-transform: uppercase;
+            }
+          }
+        
+          .locationSelector {
+            background: transparent;
+            border: none;
+            color: $spaceGreen;
+            display: none;
+            margin-top: -25.4px;
+            margin-top: -31.8px;
+            margin-left: 6px;
+            outline: none;
+            opacity: 0;
+            transition: opacity .3s;
+            right: -12px;
+            width: 71px;
+            z-index: 5000000;
+            @include terminalFontStyle();
+
+            &::first-letter {
+              text-transform: uppercase;
+            }
+          }
+        }
+
+        #userLocation {
+          margin-bottom: 6px;
+        }
         /* Transitions
         ========================== */
         // @mixin tabTransition($transition) {
@@ -173,9 +248,11 @@ main {
       border-top: 1px solid red;
       font-size: 28px;
       text-align: center;
+      justify-content: flex-end;
 
       ul {
         @include listStyles();
+        margin: 0;
 
         //LI styles
         $tempAssetList: (1,2);
@@ -217,8 +294,15 @@ main {
 
     &Right {
       @include boxStyle(column);
+
+      #currentLocation{
+        &::first-letter {
+          text-transform: uppercase;
+        }
+      }
       box-sizing: border-box;
     }
+
   }
 }
 
@@ -256,13 +340,13 @@ main {
 	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.15);
   box-sizing:content-box;
   display: block;
-  font-size: 10px;
+  // font-size: 10px;
   height: inherit;
   pointer-events: none;
-	position: relative;
+	// position: relative;
   text-transform: uppercase;
   transition: all 0.3s ease-in-out;
-  text-shadow: 0 1px rgba(255, 255, 255, 0.4);
+  // text-shadow: 0 1px rgba(255, 255, 255, 0.4);
 }
 .switch-label:before, .switch-label:after {
   pointer-events: none;
@@ -341,7 +425,6 @@ main {
 	-moz-transition: All 0.3s ease;
 	-o-transition: All 0.3s ease;
 }
-
 
 
 

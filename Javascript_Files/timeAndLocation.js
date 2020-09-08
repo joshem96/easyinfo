@@ -1,7 +1,5 @@
 //Variables
 //.............................................................
-    // var timeAndDatePackage = require('date-and-time'); // NPM time-and-date package
-    
     var time; // becomes string of raw new Date 
     var date; 
     var currentTime = { 
@@ -17,6 +15,7 @@
 //find current time
 //.............................................................
     function findTime(){
+        basicTime = ""; 
         var timeNow = '';
         time = new Date;
         time = time.toTimeString();
@@ -28,8 +27,13 @@
             basicTime = basicTime + timeNow[i];
         } 
         currentTime.twentyFourHour = ridNumbersAfterDecimal(timeNow);
-        currentTime.twelveHour = moment(currentTime.twentyFourHour, ["HH.mm"]).format("hh:mm A");
-        currentTime.twelveHour = ridFirstZero(currentTime.twelveHour);
+        // setTimeout(() => {
+            currentTime.twelveHour = moment(currentTime.twentyFourHour, ["HH.mm"]).format("hh:mm A");
+            if (currentTime.twelveHour[0] === "0"){
+                currentTime.twelveHour = ridFirstZero(currentTime.twelveHour);  
+            }        
+        // }, 300);
+
         //12 hour time is handled by packages.js
     }
 
@@ -65,8 +69,79 @@
         return metricDate;
     }
     
-    // var switchLabel = document.querySelectorAll(".switch-label");
-    // switchLabel[1].dataOn === "24 Hour"
+//TOGGLE CODE
+//.......................................................
+    var locationSelector = document.querySelector(".locationSelector");
+    var locationNode = document.querySelector(".locationNode");
+    var currentCity;
 
-// //13:05 => 01:05 PM
-// var twelveHourTime = date.transform(currentTime.twentyFourHour, 'HH:mm', 'hh:mm A');
+    //when location toggle handle clicked..
+    radio[2].addEventListener("click",( (e) => { 
+        //temporarily disable handle
+        e.target.style = "pointer-events: none";
+        setTimeout(() => {
+            e.target.style = "";
+        }, 1000);
+
+        locationToggle();
+    }));
+    
+    //switch between viewing current chosen location and changing it
+    function locationToggle(){
+        //viewing location => changing location (toggle)
+        if (locationNode.classList.contains("on")){
+
+            //transition method
+            locationNode.style.opacity = 0;
+            setTimeout(() => {
+                locationNode.classList.remove("on");
+            }, 150);
+            setTimeout(() => {
+                locationSelector.classList.add("on");
+            }, 160);
+            setTimeout(() => {
+                locationSelector.style.opacity = 1;  
+            }, 170);
+
+            locationSelector.value = "";
+
+        }
+        //changing location => viewing location (toggle)
+        else if (locationSelector.classList.contains("on")){
+
+            //transition method
+            locationSelector.style.opacity = 0;
+            setTimeout(() => {
+                locationSelector.classList.remove("on");
+            }, 150);
+            setTimeout(() => {
+                locationNode.classList.add("on");
+                locationNode.style.opacity = 1;  
+            }, 190);
+
+            //only change location if locationSelector value is greater than 2
+            if (locationSelector.value.length > 1){
+                    locationNode.style.width = "";
+                currentCity =  (locationSelector.value);
+                locationNode.innerHTML = currentCity;
+debugger;
+                //change the name of city in btm right box
+                //TO DO: if no location matches, then notify user using a string
+                weatherLocationNode.innerHTML = locationSelector.value;
+
+                //change width of locationNode depending on length of users chosen location
+                //this keeps the text in the center of the box at all times
+                if (locationNode.offsetWidth >= 67){
+                    locationNode.style.width = "60px";
+                    locationNode.style.top = "-6px";
+                }
+                else {
+                    locationNode.style.width = "67";
+                    locationNode.style.top = "";
+                }
+            }
+
+
+        }
+    }
+
