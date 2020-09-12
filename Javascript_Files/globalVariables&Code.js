@@ -56,7 +56,7 @@ function consoleLog(string){
 
         // //keyboard shortcuts
         // window.addEventListener("keypress",((e) => {
-
+        // !! DO NOT DELETE!!
         //     //if user pressess I key
         //     //TOGGLE BACKGROUND BETWEEN API/BACKUP
         //     if (e.keyCode === 105){
@@ -134,7 +134,7 @@ function consoleLog(string){
     //check if nasa image available
     function nasaImageCheck(){
         setTimeout(() => {
-            if (nasaImage.src.split("/").includes("undefined")) {
+            if (nasaImage.src.split("/").includes("undefined") || nasaImage.src.split("/").includes("video")  ) {
                 nasaImage.src = "Assets/space_backup.jpeg";
             }
             else if (nasaImageUrl != undefined){
@@ -150,34 +150,46 @@ function consoleLog(string){
     var nasaImage = document.querySelector("#nasaImage");
     var astronomyImage;
     var nasaImageUrl;
-
-    function getNasaImg(){
-        try {
-            astronomyImage = fetch("https://api.nasa.gov/planetary/apod?&api_key=wrD5MbnYM2YSAuALIoCjMMXDz9Cg36PZnKdX3t7D")
-            .then( res => res.json()).then( res =>{
-            astronomyImage = res;
-            nasaImageUrl = astronomyImage.hdurl
-            nasaImage.src = nasaImageUrl;
-            }).catch( err => {
-                if (err) {
-                    setTimeout( () => nasaImage.src = "Assets/space_backup.jpeg",2000);
-                    consoleLog("in here"); 
-                } 
-            }); 
-        } 
-        finally {
-            //check if nasa img available
-            nasaImageCheck();
-            //if NASA returns 404 error
-            setTimeout( () => { 
-                if (astronomyImage.code === 404){
-                    nasaImage.src = "Assets/space_backup.jpeg" 
-                }
-            },2000);
-        }
+    var nasaAPIObject;
+    //async await nasa image fetch code
+    async function getNasaImg(){
+        nasaAPIObject = await fetch("https://api.nasa.gov/planetary/apod?&api_key=wrD5MbnYM2YSAuALIoCjMMXDz9Cg36PZnKdX3t7D");
+        nasaAPIObject = await nasaAPIObject.json();
+        naseImageUrl = nasaAPIObject.url;
+        nasaImage.src = await nasaImageUrl;
     }
 
-//TOGGLE BUTTON 
+    //OLD FETCH CODE
+    // function getNasaImg(){
+    //     try {
+    //         astronomyImage = fetch("https://api.nasa.gov/planetary/apod?&api_key=wrD5MbnYM2YSAuALIoCjMMXDz9Cg36PZnKdX3t7D")
+    //         .then( res => res.json()).then( res => {
+    //         astronomyImage = res;
+    //         nasaImageUrl = astronomyImage.hdurl
+    //         nasaImage.src = nasaImageUrl;
+    //         }).catch( err => {
+    //             if (err) {
+    //                 setTimeout( () => nasaImage.src = "Assets/space_backup.jpeg",2000);
+    //                 consoleLog("in here"); 
+    //             } 
+    //         }); 
+    //     } 
+    //     finally {
+    //         //check if nasa img available
+    //         nasaImageCheck();
+    //         //if above doesn't work check the if NASA returns 404 error
+    //         setTimeout( () => { 
+    //             if (astronomyImage.code === 404){
+    //                 nasaImage.src = "Assets/space_backup.jpeg" 
+    //             }
+    //         },2000);
+    //     }
+    // }
+
+
+
+
+//TOGGLE BUTTONS
 //............................................................................................
 var currentMeasurement = "metric";
 // var currentTimeFormat = "12"
@@ -231,9 +243,5 @@ function toggleBugFix(e){
     }
 }
 
-// //toggle button JS hover functionality 
-// var settingsTab = document.querySelector("#userSettings");
-// var toggleWrap = document.querySelector(".togglesWrap");
-// settingsTab.addEventListener("mouseover", () => toggleWrap.style.marginTop = "0" );
-// settingsTab.addEventListener("mouseout", () => toggleWrap.style.marginTop = "" );
+
 

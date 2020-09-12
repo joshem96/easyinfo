@@ -52,7 +52,6 @@
         weatherData.metric = fetch(fetchWeatherData + "metric")
             .then( res => res.json())
             .then( res => {
-
             weatherData.metric = res; 
             weatherTemp.metric = ridNumbersAfterDecimal(weatherData.metric.main.temp);
             weatherTempText.innerHTML = weatherTemp.metric + "&#176" ;

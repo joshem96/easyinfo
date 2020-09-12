@@ -124,7 +124,7 @@
                 locationNode.innerHTML = locationSelector.value; //currentCity;
                 locationNode.style.width = "";
                 locationNode.style.whitespace = "nowrap";
-debugger;
+
                 //change the name of city in btm right box 
                 weatherLocationNode.innerHTML = locationNode.innerText;
 
