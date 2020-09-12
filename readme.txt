@@ -14,11 +14,11 @@ GREYTAB
     2. Choose between 12hr or 24hr format
     3. Customize the name of your location (click the radio button to toggle between changing location and viewing it)
 
-PROGRAMMER TOOLS
-- On the programmer branch, you have access to 3 keyboard shortcuts
-    - "h" forces hover on grey tab, so then settings stay displayed
+PROGRAMMER TOOLS (in globalVariables&Code.js)
+- On the programmer branch, you have access to 3 keyboard shortcuts (or just use functions in master version)
+    - fakeHover() or "h" forces hover on grey tab, so then settings stay displayed 
     - "i" swaps between backup image and nasa image 
-    - "g" gives you access to a coloured grid, which the layout is based on 
+    - gridToggle() or "g" gives you access to a coloured grid, which the layout is based on 
 
 
 DISCLAIMER:
