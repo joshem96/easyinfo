@@ -200,7 +200,6 @@ function changeMeasurement(e){
     }
 
     if (e.target.id ==="time"){
-        // debugger;
         if (currentTime.format === "12"){
             timeNode.innerHTML = currentTime.twentyFourHour;
             currentTime.format = "24";
@@ -222,7 +221,7 @@ measurementLabel.addEventListener("click",toggleBugFix);
 locationLabel.addEventListener("click",toggleBugFix);
 
 //makes the toggle only actionable via radio
-function toggleBugFix(e){ //debugger;
+function toggleBugFix(e){ 
     if (e.target.id === "switchLabel" && !e.target.classList.contains
     (measurementToggle[0] || measurementToggle[1] || measurementToggle[2] /* || locationNode  || locationSelector*/)){
         e.preventDefault();

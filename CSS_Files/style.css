@@ -163,6 +163,7 @@ main header section .togglesWrap #locationWrap {
   display: -ms-flexbox;
   display: flex;
   position: absolute;
+  text-transform: capitalize;
 }
 
 main header section .togglesWrap #locationWrap .locationNode {
@@ -201,10 +202,12 @@ main header section .togglesWrap #locationWrap .locationSelector {
   margin-left: 6px;
   outline: none;
   opacity: 0;
+  text-transform: capitalize;
   -webkit-transition: opacity .3s;
   transition: opacity .3s;
   right: -12px;
   width: 71px;
+  -webkit-appearance: none;
   z-index: 5000000;
   text-shadow: 0 1px rgba(255, 255, 255, 0.4);
   color: #8bce8b;

@@ -12,6 +12,7 @@
     var dateNode = document.querySelector("#dateValue");
     var imperialDate;
     var metricDate;
+
 //find current time
 //.............................................................
     function findTime(){
@@ -69,11 +70,10 @@
         return metricDate;
     }
     
-//TOGGLE CODE
+//LOCATION SELECTOR
 //.......................................................
     var locationSelector = document.querySelector(".locationSelector");
     var locationNode = document.querySelector(".locationNode");
-    var currentCity;
 
     //when location toggle handle clicked..
     radio[2].addEventListener("click",( (e) => { 
@@ -87,7 +87,7 @@
     }));
     
     //switch between viewing current chosen location and changing it
-    function locationToggle(){
+    function locationToggle(){ 
         //viewing location => changing location (toggle)
         if (locationNode.classList.contains("on")){
 
@@ -121,27 +121,45 @@
 
             //only change location if locationSelector value is greater than 2
             if (locationSelector.value.length > 1){
-                    locationNode.style.width = "";
-                currentCity =  (locationSelector.value);
-                locationNode.innerHTML = currentCity;
+                locationNode.innerHTML = locationSelector.value; //currentCity;
+                locationNode.style.width = "";
+                locationNode.style.whitespace = "nowrap";
 debugger;
-                //change the name of city in btm right box
-                //TO DO: if no location matches, then notify user using a string
-                weatherLocationNode.innerHTML = locationSelector.value;
+                //change the name of city in btm right box 
+                weatherLocationNode.innerHTML = locationNode.innerText;
+
+                //remove spaces from string to calculate width 
+                var nodeString = locationNode.innerText.toString().split(" ");
+                if(nodeString[1]){
+                    nodeString.forEach((item) => {
+                        if (item === nodeString[0]){
+                            nodeString = item.toString();
+                        }
+                        else{
+                            nodeString = nodeString + item.toString();
+                        }
+                    })
+                    locationNode.innerHTML = nodeString;
+                }
 
                 //change width of locationNode depending on length of users chosen location
                 //this keeps the text in the center of the box at all times
+                //for long words
                 if (locationNode.offsetWidth >= 67){
+                    locationNode.style.whitespace = "";
                     locationNode.style.width = "60px";
                     locationNode.style.top = "-6px";
+                    locationNode.innerHTML = locationSelector.value;
                 }
+                //for short words
                 else {
+                    locationNode.style.whitespace = "";
                     locationNode.style.width = "67";
                     locationNode.style.top = "";
+                    locationNode.innerHTML = locationSelector.value;
                 }
             }
-
-
-        }
+        } 
     }
+
 

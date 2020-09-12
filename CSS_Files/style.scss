@@ -123,6 +123,7 @@ main {
           @include terminalFontStyle();
           display: flex;
           position: absolute;
+          text-transform: capitalize;
           
         
           .locationNode {
@@ -155,9 +156,11 @@ main {
             margin-left: 6px;
             outline: none;
             opacity: 0;
+            text-transform: capitalize;
             transition: opacity .3s;
             right: -12px;
             width: 71px;
+            -webkit-appearance: none;
             z-index: 5000000;
             @include terminalFontStyle();
 

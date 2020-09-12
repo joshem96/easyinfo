@@ -5,7 +5,7 @@ setTimeout(() => {
     //insert weather once user accepts to share location
     var insertData = setInterval(() => {
         if (typeof locationObject.latitude === "number"){
-            getWeather(); 
+            getWeather(); debugger;
                 locationNode.style.width = "";
             if (locationNode.offsetWidth >= 67){
                 locationNode.style.width = "60px";
