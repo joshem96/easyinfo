@@ -17,7 +17,7 @@ GREYTAB
 PROGRAMMER TOOLS (in globalVariables&Code.js)
 - On the programmer branch, you have access to 3 keyboard shortcuts (or just use functions in master version)
     - fakeHover() or "h" forces hover on grey tab, so then settings stay displayed 
-    - "i" swaps between backup image and nasa image 
+    - imageToggle() or "i" swaps between backup image and nasa image 
     - gridToggle() or "g" gives you access to a coloured grid, which the layout is based on 
 
 
