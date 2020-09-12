@@ -17,6 +17,7 @@ function consoleLog(string){
 //..........................................................................................
 
     //KEYBOARD SHORTCUTS
+
         //THE GRID / GRID TOGGLE
         var gridToggleValue = 0;
         function gridToggle(){
@@ -48,13 +49,18 @@ function consoleLog(string){
             }
         }
 
+        //toggle between nasa image and backupimage
+        function imageToggle(){
+            stringToggle(nasaImage, nasaImage.src, "/", "Assets", "Assets/space_backup.jpeg", nasaImageUrl);
+        }
+
         // //keyboard shortcuts
         // window.addEventListener("keypress",((e) => {
 
         //     //if user pressess I key
         //     //TOGGLE BACKGROUND BETWEEN API/BACKUP
         //     if (e.keyCode === 105){
-        //         stringToggle(nasaImage, nasaImage.src, "/", "Assets", "Assets/space_backup.jpeg", nasaImageUrl);
+        //         imageToggle();
         //     }
 
         //     //if user presses h key
@@ -101,7 +107,6 @@ function consoleLog(string){
         return newNumber
     }
 
-
     //RID FIRST 0 IF APPLICABLE FOR 12 HOUR TIME 
     function ridFirstZero(firstChar){
         if (firstChar[0] === "0"){
@@ -115,9 +120,7 @@ function consoleLog(string){
         }
     }
 
-
-
-    //image toggle
+    //image toggle function
     //will toggle between 2 images depending on if a string contains a certain word
     function stringToggle(imageSourceNode, string, splitChar, certainWord, imageOne, imageTwo){
         if (string.split(splitChar || " ").includes(certainWord)){
