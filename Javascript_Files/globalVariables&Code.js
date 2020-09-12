@@ -48,27 +48,27 @@ function consoleLog(string){
             }
         }
 
-        // //keyboard shortcuts
-        // window.addEventListener("keypress",((e) => {
+        //keyboard shortcuts
+        window.addEventListener("keypress",((e) => {
 
-        //     //if user pressess I key
-        //     //TOGGLE BACKGROUND BETWEEN API/BACKUP
-        //     if (e.keyCode === 105){
-        //         stringToggle(nasaImage, nasaImage.src, "/", "Assets", "Assets/space_backup.jpeg", nasaImageUrl);
-        //     }
+            //if user pressess I key
+            //TOGGLE BACKGROUND BETWEEN API/BACKUP
+            if (e.keyCode === 105){
+                stringToggle(nasaImage, nasaImage.src, "/", "Assets", "Assets/space_backup.jpeg", nasaImageUrl);
+            }
 
-        //     //if user presses h key
-        //     //FAKE HOVER ON SECTION 
-        //     else if (e.keyCode === 104) {
-        //         fakeHover(); 
-        //     }
+            //if user presses h key
+            //FAKE HOVER ON SECTION 
+            else if (e.keyCode === 104) {
+                fakeHover(); 
+            }
 
-        //     //if user pressess g key
-        //     //GRID TOGGLE 
-        //     else if (e.keyCode === 103) {
-        //         gridToggle(); 
-        //     }
-        // }));
+            //if user pressess g key
+            //GRID TOGGLE 
+            else if (e.keyCode === 103) {
+                gridToggle(); 
+            }
+        }));
 
     //RID ALL NUMBERS AFTER "." OR ":"
     //used to get rid of unessacary digits within time and temp value
