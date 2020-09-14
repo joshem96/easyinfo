@@ -36,7 +36,6 @@ html,body {
   @extend section:hover;
 }
 
-  
 //the box thats encapsulating everything
 main {
   @include flexType(column);
@@ -78,54 +77,41 @@ main {
       width: auto;
 
       &:hover {
-        box-shadow: 0.2px 0.9px 4.75px 0.6px darkgrey; /*-0.5px 0.5px 3.5px 1px darkgrey;*/
+        box-shadow: 0.2px 0.9px 4.75px 0.6px darkgrey; 
         border: .5px solid #796e6e7a;
         border-style: groove;
         border-top: transparent;
         filter: brightness(1.0);
         height: 127px;
-        // height: auto;
       }
-
-
-
-
       &:hover .togglesWrap {
         margin-top: 0;
       }
-      
       .togglesWrap {
-        // transition: All 0.8s ease;
         margin-top: 8.5px;
         display: flex;
         flex-direction: column;
         font-size: 11px;
-        /* width: 120; */
         padding: 0px 6px;
-        /* justify-content: space-between; */
         text-shadow: 0 1px rgba(255, 255, 255, 0.4);
         transition: all .5s ease;
         &:hover {
           margin-top: 0;
         }
-
         #measurementToggleWrap {
           margin-top: 6px;
           margin-bottom: 2px;
         }
-
         #timeToggleWrap {
           margin-bottom: 4px;
           margin-top: 2px;
         }
-
         #locationWrap {
           @include terminalFontStyle();
           display: flex;
           position: absolute;
           text-transform: capitalize;
           
-        
           .locationNode {
             display: flex;
             flex-direction: column;
@@ -173,31 +159,111 @@ main {
         #userLocation {
           margin-bottom: 6px;
         }
-        /* Transitions
-        ========================== */
-        // @mixin tabTransition($transition) {
-        //   -webkit-transition: $transition;
-        //      -moz-transition: $transition;
-        //       -ms-transition: $transition;
-        //        -o-transition: $transition;
-        //           transition: $transition;
-        // }
-        // @include transition(All 0.8s ease);
+      }
+      //METRIC/IMPERIAL TOGGLE
+      .switch {
+        align-self: center;
+        position: relative;
+        display: block;
+        width: 100px;
+        height: 30px;
+        padding: 3px;
+        background: inear-gradient(to bottom, #707070, #d1cbcb 25px);
+        background-image: -webkit-linear-gradient(top, #211d1d, #c3baba 25px);
+        border-radius: 18px;
+        box-shadow: inset 0 -1px white, inset 0 1px 1px rgba(0, 0, 0, 0.05);
+        box-sizing:content-box;
+      }
+      .switch-input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        box-sizing:content-box;
+      }
+      .switch-label {
+        background: rgba(0,0,0,0.86);
+        border-radius: inherit;
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.15);
+        box-sizing:content-box;
+        display: block;
+        height: inherit;
+        pointer-events: none;
+        text-transform: uppercase;
+        transition: all 0.3s ease-in-out;
+      }
+      .switch-label:before, .switch-label:after {
+        pointer-events: none;
+        position: absolute;
+        top: 50%;
+        margin-top: -.5em;
+        line-height: 1;
+        -webkit-transition: inherit;
+        -moz-transition: inherit;
+        -o-transition: inherit;
+        transition: inherit;
+        box-sizing:content-box;
+      }
+      .switch-label:before {
+        pointer-events: none;
+        content: attr(data-off);
+        right: 11px;
+      }
+      .switch-label:after {
+        pointer-events: none;
+        content: attr(data-on);
+        left: 11px;
+        opacity: 0;
+      }
+      .switch-input:checked ~ .switch-label {
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15), inset 0 0 3px rgba(0, 0, 0, 0.2);
+      }
+      .switch-input:checked ~ .switch-label:before {
+        opacity: 0;
+      } 
+      .switch-input:checked ~ .switch-label:after {
+        opacity: 1;
+      } 
+      .switch-handle {
+        background: linear-gradient(to bottom, #FFFFFF 40%, #f0f0f0);
+        background-image: -webkit-linear-gradient(top, darkgrey 85%, #f0f0f0);
+        border-radius: 100%;
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        height: 28px;
+        left: 4px;
+        position: absolute;
+        top: 4px;
+        transition: all 0.5s ease;
+        width: 28px;
+      } 
+      .switch-handle:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -6px 0 0 -6px;
+        width: 12px;
+        height: 12px;
 
-
-
-
-        // #userSettings .togglesWrap {
-        //   transition: All 0.8s ease;
-        //   -webkit-transition: All 0.3s ease;
-        //   -moz-transition: All 0.3s ease;
-        //   -o-transition: All 0.3s ease;
-        // }
-
+        background: linear-gradient(to bottom, #eeeeee, #FFFFFF);
+        background-image: -webkit-linear-gradient(top, grey, purple);
+        border-radius: 6px;
+        box-shadow: inset 0 1px rgba(0, 0, 0, 0.02);
+      }  
+      .switch-input:checked ~ .switch-handle {
+        left: 74px;
+        box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
+      }
+      /* Transition
+      ========================== */
+      .switch-label .switch-handle {
+        transition: All 0.8s ease;
+        -webkit-transition: All 0.3s ease;
+        -moz-transition: All 0.3s ease;
+        -o-transition: All 0.3s ease;
       }
     }
-    
-
   }
 
   .filter {
@@ -209,8 +275,7 @@ main {
     z-index: 500; 
     width: 100%;
   }
-
-  img{
+  img {
     max-width: 100%;
     position: absolute;
     top: 0;
@@ -231,13 +296,11 @@ main {
       #weatherTempContainer {
         display: flex;
       }
-
       #weatherIcon {
         opacity: 0.94;
         position: relative;
         width: 80px;
       }
-
       #tempvalue{
         align-self: flex-start;
         position: relative;
@@ -273,12 +336,10 @@ main {
     @extend #topbox;
     bottom: 0;
 
-    
     &Left {
       @include boxStyle(row);
       box-sizing: border-box;
       ul { 
-
         @include listStyles();
         font-size: 40px;
         text-align: center;
@@ -288,7 +349,6 @@ main {
         #timeValue {
           align-self: center;
         }
-
         #dateValue {
           font-size: 25px;
         }
@@ -309,139 +369,7 @@ main {
   }
 }
 
-//METRIC/IMPERIAL TOGGLE
 
-.switch {
-  align-self: center;
-	position: relative;
-	display: block;
-	// vertical-align: top;
-	width: 100px;
-  height: 30px;
-  // margin-right: 8px;
-	padding: 3px;
-	// margin: 0 10px 10px 0;
-  // background: linear-gradient(to bottom, #eeeeee, #FFFFFF 25px);
-  background: inear-gradient(to bottom, #707070, #d1cbcb 25px);
-  // background-image: -webkit-linear-gradient(top, #eeeeee, #FFFFFF 25px);
-  background-image: -webkit-linear-gradient(top, #211d1d, #c3baba 25px);
-	border-radius: 18px;
-	box-shadow: inset 0 -1px white, inset 0 1px 1px rgba(0, 0, 0, 0.05);
-	// cursor: pointer;
-	box-sizing:content-box;
-}
-.switch-input {
-	position: absolute;
-	top: 0;
-	left: 0;
-	opacity: 0;
-	box-sizing:content-box;
-}
-.switch-label {
-  background: rgba(0,0,0,0.86);
-	border-radius: inherit;
-	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.15);
-  box-sizing:content-box;
-  display: block;
-  // font-size: 10px;
-  height: inherit;
-  pointer-events: none;
-	// position: relative;
-  text-transform: uppercase;
-  transition: all 0.3s ease-in-out;
-  // text-shadow: 0 1px rgba(255, 255, 255, 0.4);
-}
-.switch-label:before, .switch-label:after {
-  pointer-events: none;
-	position: absolute;
-	top: 50%;
-	margin-top: -.5em;
-	line-height: 1;
-	-webkit-transition: inherit;
-	-moz-transition: inherit;
-	-o-transition: inherit;
-	transition: inherit;
-	box-sizing:content-box;
-}
-.switch-label:before {
-  pointer-events: none;
-	content: attr(data-off);
-	right: 11px;
-	/* color: #aaaaaa; */
-	// text-shadow: 0 1px rgba(255, 255, 255, 0.5);
-}
-.switch-label:after {
-  pointer-events: none;
-	content: attr(data-on);
-	left: 11px;
-	/* color: #FFFFFF; */
-	// text-shadow: 0 1px rgba(0, 0, 0, 0.2);
-	opacity: 0;
-}
-.switch-input:checked ~ .switch-label {
-/* 	background: #E1B42B; */
-	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15), inset 0 0 3px rgba(0, 0, 0, 0.2);
-}
-.switch-input:checked ~ .switch-label:before {
-  opacity: 0;
-} 
- .switch-input:checked ~ .switch-label:after {
-  opacity: 1;
-} 
-.switch-handle {
-  background: linear-gradient(to bottom, #FFFFFF 40%, #f0f0f0);
-  background-image: -webkit-linear-gradient(top, darkgrey 85%, #f0f0f0);
-  border-radius: 100%;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  height: 28px;
-  left: 4px;
-  position: absolute;
-  top: 4px;
-  transition: all 0.5s ease;
-  width: 28px;
-} 
-.switch-handle:before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin: -6px 0 0 -6px;
-  width: 12px;
-  height: 12px;
-
-  background: linear-gradient(to bottom, #eeeeee, #FFFFFF);
-  background-image: -webkit-linear-gradient(top, grey, purple);
-  border-radius: 6px;
-  box-shadow: inset 0 1px rgba(0, 0, 0, 0.02);
-}  
-.switch-input:checked ~ .switch-handle {
-	left: 74px;
-	box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
-}
-
-/* Transition
-========================== */
-.switch-label .switch-handle {
-	transition: All 0.8s ease;
-	-webkit-transition: All 0.3s ease;
-	-moz-transition: All 0.3s ease;
-	-o-transition: All 0.3s ease;
-}
-
-
-
-
-
-  //what ive done scss
-
-    // topbox bottombox styles
-    // grid styles
-    //mixins for individual boxes
-    //general tidy
-
-
-// //margin & padding classes
 
 
 

@@ -1,6 +1,5 @@
 
 //sets background image and weather every four hours 
-//TO DO: change to 1 hour for non-programmer version
 setInterval(() => {
     getNasaImg();
     if (typeof locationObject.latitude === "number"){
@@ -9,7 +8,7 @@ setInterval(() => {
     }
 }, 14400000); 
 
-//update time every 5 seconds
+//update time and check if nasa img every 5 seconds
 setInterval(() => {
     insertCurrentTime();
     nasaImageCheck();

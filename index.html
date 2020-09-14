@@ -3,17 +3,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="CSS_Files/style.css"></link>
-  
-    <!-- <script src="Javascript_Files/packages.js" ></script> -->
-
 </head>
 <title>easyinfo</title>
 <body>
 
     <!-- MAIN AREA -->
     <main>
+        <!-- BACKGROUND IMAGE-->
         <div class="filter"></div>  
         <img id="nasaImage" alt="nasa image" src="Assets/space_backup.jpeg">
+
+        <!-- TOP OF PAGE -->
         <header style = "border: transparent;">
             <span style="display: None;">easyinfo</span>
 
@@ -56,12 +56,10 @@
 
                 </div>
             </section>
-            
         </header>
-        <!-- FILTER ON TOP OF BACKGROUND IMAGE -->
 
+        <!-- WEATHER INFO -->
         <aside id="topbox">
-            <!-- weather info -->
             <div id = "topboxLeft" style ="border: transparent">
                 <aside id ="weatherTempContainer">
                     <img src ="" id="weatherIcon"></img>
@@ -76,6 +74,7 @@
             </div>
         </aside>
         
+        <!-- TIME AND LOCATION -->
         <aside id ="btmbox">
             <div id = "btmboxLeft" style ="border: transparent">
                 <ul>
@@ -90,15 +89,12 @@
     
     </main>
 
-
-<script src="Javascript_Files/globalVariables&Code.js"></script>
-<script src="Javascript_Files/timeAndLocation.js"></script>
-<script src="Javascript_Files/weather.js"></script>
-<script src="Javascript_Files/functionsOnLoad.js"></script>
-<script src="Javascript_Files/API_Refresh.js"></script>
-<!-- <script src="node_modules/.js"></script> -->
-<!-- <script src="Javascript_Files/bundle.js" ></script>  -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js" integrity="sha512-rmZcZsyhe0/MAjquhTgiUcb4d9knaFc7b5xAfju483gbEXTkeJRUMIPk6s3ySZMYUHEcjKbjLjyddGWMrNEvZg==" crossorigin="anonymous"></script>
-<!-- <script src="../Code Library/Number_Related_Code.js"></script> --> 
+    <!-- SCRIPT TAGS -->
+    <script src="Javascript_Files/globalVariables&Code.js"></script>
+    <script src="Javascript_Files/timeAndLocation.js"></script>
+    <script src="Javascript_Files/weather.js"></script>
+    <script src="Javascript_Files/functionsOnLoad.js"></script>
+    <script src="Javascript_Files/API_Refresh.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js" integrity="sha512-rmZcZsyhe0/MAjquhTgiUcb4d9knaFc7b5xAfju483gbEXTkeJRUMIPk6s3ySZMYUHEcjKbjLjyddGWMrNEvZg==" crossorigin="anonymous"></script>
+    <script src="Javascript_Files/userSettings.js"></script>
 </body>
-</html>

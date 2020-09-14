@@ -1,6 +1,4 @@
-function consoleLog(string){
-    console.log(string);
-}
+
 
 //GLOBAL VARIABLES
 //........................................................................................
@@ -54,9 +52,9 @@ function consoleLog(string){
             stringToggle(nasaImage, nasaImage.src, "/", "Assets", "Assets/space_backup.jpeg", nasaImageUrl);
         }
 
+        // !! DO NOT DELETE!!
         // //keyboard shortcuts
         // window.addEventListener("keypress",((e) => {
-        // !! DO NOT DELETE!!
         //     //if user pressess I key
         //     //TOGGLE BACKGROUND BETWEEN API/BACKUP
         //     if (e.keyCode === 105){
@@ -144,6 +142,12 @@ function consoleLog(string){
             }     
         }, 1000);
     }
+
+    //consolelog function
+    function consoleLog(string){
+        console.log(string);
+    }
+
 //background image API
 //........................................................................................
     //show nasa image, if error show backup image though catch/reject
@@ -159,89 +163,6 @@ function consoleLog(string){
         nasaImage.src = await nasaImageUrl;
     }
 
-    //OLD FETCH CODE
-    // function getNasaImg(){
-    //     try {
-    //         astronomyImage = fetch("https://api.nasa.gov/planetary/apod?&api_key=wrD5MbnYM2YSAuALIoCjMMXDz9Cg36PZnKdX3t7D")
-    //         .then( res => res.json()).then( res => {
-    //         astronomyImage = res;
-    //         nasaImageUrl = astronomyImage.hdurl
-    //         nasaImage.src = nasaImageUrl;
-    //         }).catch( err => {
-    //             if (err) {
-    //                 setTimeout( () => nasaImage.src = "Assets/space_backup.jpeg",2000);
-    //                 consoleLog("in here"); 
-    //             } 
-    //         }); 
-    //     } 
-    //     finally {
-    //         //check if nasa img available
-    //         nasaImageCheck();
-    //         //if above doesn't work check the if NASA returns 404 error
-    //         setTimeout( () => { 
-    //             if (astronomyImage.code === 404){
-    //                 nasaImage.src = "Assets/space_backup.jpeg" 
-    //             }
-    //         },2000);
-    //     }
-    // }
-
-
-
-
-//TOGGLE BUTTONS
-//............................................................................................
-var currentMeasurement = "metric";
-// var currentTimeFormat = "12"
-var measurementToggle = document.querySelectorAll(".switch-label");
-var radio = document.querySelectorAll(".switch-handle");
-
-radio[0].addEventListener("click",changeMeasurement);
-radio[1].addEventListener("click",changeMeasurement);
-
-function changeMeasurement(e){
-
-    if (e.target.id ==="measurement"){
-        if (currentMeasurement === "metric"){
-            weatherTempText.innerHTML = weatherTemp.imperial + "&#176";
-            currentMeasurement = "imperial";
-            windValue.innerHTML = weatherSpeed.imperial
-        }
-        else if (currentMeasurement === "imperial"){
-            weatherTempText.innerHTML = weatherTemp.metric + "&#176"; 
-            currentMeasurement = "metric"; 
-            windValue.innerHTML = weatherSpeed.metric
-        }
-    }
-
-    if (e.target.id ==="time"){
-        if (currentTime.format === "12"){
-            timeNode.innerHTML = currentTime.twentyFourHour;
-            currentTime.format = "24";
-        }
-        else if (currentTime.format === "24"){ 
-            timeNode.innerHTML = currentTime.twelveHour;
-            currentTime.format = "12";
-        }
-    }
-
-}
-
-var timeLabel = document.querySelector(".timeLabel");
-var measurementLabel = document.querySelector(".measurementLabel");
-var locationLabel = document.querySelector(".locationLabel");
-
-timeLabel.addEventListener("click",toggleBugFix);
-measurementLabel.addEventListener("click",toggleBugFix);
-locationLabel.addEventListener("click",toggleBugFix);
-
-//makes the toggle only actionable via radio
-function toggleBugFix(e){ 
-    if (e.target.id === "switchLabel" && !e.target.classList.contains
-    (measurementToggle[0] || measurementToggle[1] || measurementToggle[2] /* || locationNode  || locationSelector*/)){
-        e.preventDefault();
-    }
-}
 
 
 
