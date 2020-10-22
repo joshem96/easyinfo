@@ -2,13 +2,6 @@
 //variables, functions and mixins
 @import "_config";
 
-@font-face {
-  font-family: nunito;
-  // src: url("../../../Tools_Documentation_etc/Fonts/Nunito/Nunito-Regular.ttf");
-  src: url("../../../Tools_Documentation_etc/Fonts/Nunito/Nunito-SemiBold.ttf");
-  font-weight: normal;
-}
-
 html,body {
     background: rgb(46, 44, 46);
     color: $fontColor;

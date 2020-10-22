@@ -1,12 +1,12 @@
 @font-face {
   font-family: nunito;
-  src: url("../../../Tools_Documentation_etc/Fonts/Nunito/Nunito-Regular.ttf");
+  src: url("../Assets/Fonts/Nunito/Nunito-Regular.ttf");
   font-weight: normal;
 }
 
 @font-face {
   font-family: nunito;
-  src: url("../../../Tools_Documentation_etc/Fonts/Nunito/Nunito-SemiBold.ttf");
+  src: url("../Assets/Fonts/Nunito/Nunito-SemiBold.ttf");
   font-weight: normal;
 }
 
@@ -104,12 +104,13 @@ main header section {
   -webkit-transition: all 0.8s ease;
   transition: all 0.8s ease;
   width: auto;
+  /* Transition
+      ========================== */
 }
 
 main header section:hover, main header .fakeSectionHover {
   -webkit-box-shadow: 0.2px 0.9px 4.75px 0.6px darkgrey;
           box-shadow: 0.2px 0.9px 4.75px 0.6px darkgrey;
-  /*-0.5px 0.5px 3.5px 1px darkgrey;*/
   border: .5px solid #796e6e7a;
   border-style: groove;
   border-top: transparent;
@@ -132,14 +133,10 @@ main header section .togglesWrap {
       -ms-flex-direction: column;
           flex-direction: column;
   font-size: 11px;
-  /* width: 120; */
   padding: 0px 6px;
-  /* justify-content: space-between; */
   text-shadow: 0 1px rgba(255, 255, 255, 0.4);
   -webkit-transition: all .5s ease;
   transition: all .5s ease;
-  /* Transitions
-        ========================== */
 }
 
 main header section .togglesWrap:hover {
@@ -219,6 +216,133 @@ main header section .togglesWrap #locationWrap .locationSelector::first-letter {
 
 main header section .togglesWrap #userLocation {
   margin-bottom: 6px;
+}
+
+main header section .switch {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  position: relative;
+  display: block;
+  width: 100px;
+  height: 30px;
+  padding: 3px;
+  background: inear-gradient(to bottom, #707070, #d1cbcb 25px);
+  background-image: -webkit-linear-gradient(top, #211d1d, #c3baba 25px);
+  border-radius: 18px;
+  -webkit-box-shadow: inset 0 -1px white, inset 0 1px 1px rgba(0, 0, 0, 0.05);
+          box-shadow: inset 0 -1px white, inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+main header section .switch-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+main header section .switch-label {
+  background: rgba(0, 0, 0, 0.86);
+  border-radius: inherit;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.15);
+          box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.15);
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  display: block;
+  height: inherit;
+  pointer-events: none;
+  text-transform: uppercase;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+main header section .switch-label:before, main header section .switch-label:after {
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  margin-top: -.5em;
+  line-height: 1;
+  -webkit-transition: inherit;
+  transition: inherit;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+main header section .switch-label:before {
+  pointer-events: none;
+  content: attr(data-off);
+  right: 11px;
+}
+
+main header section .switch-label:after {
+  pointer-events: none;
+  content: attr(data-on);
+  left: 11px;
+  opacity: 0;
+}
+
+main header section .switch-input:checked ~ .switch-label {
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15), inset 0 0 3px rgba(0, 0, 0, 0.2);
+          box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15), inset 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+main header section .switch-input:checked ~ .switch-label:before {
+  opacity: 0;
+}
+
+main header section .switch-input:checked ~ .switch-label:after {
+  opacity: 1;
+}
+
+main header section .switch-handle {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(40%, #FFFFFF), to(#f0f0f0));
+  background: linear-gradient(to bottom, #FFFFFF 40%, #f0f0f0);
+  background-image: -webkit-linear-gradient(top, darkgrey 85%, #f0f0f0);
+  border-radius: 100%;
+  -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  height: 28px;
+  left: 4px;
+  position: absolute;
+  top: 4px;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  width: 28px;
+}
+
+main header section .switch-handle:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -6px 0 0 -6px;
+  width: 12px;
+  height: 12px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(#FFFFFF));
+  background: linear-gradient(to bottom, #eeeeee, #FFFFFF);
+  background-image: -webkit-linear-gradient(top, grey, purple);
+  border-radius: 6px;
+  -webkit-box-shadow: inset 0 1px rgba(0, 0, 0, 0.02);
+          box-shadow: inset 0 1px rgba(0, 0, 0, 0.02);
+}
+
+main header section .switch-input:checked ~ .switch-handle {
+  left: 74px;
+  -webkit-box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+main header section .switch-label .switch-handle {
+  -webkit-transition: All 0.8s ease;
+  transition: All 0.8s ease;
+  -webkit-transition: All 0.3s ease;
+  -moz-transition: All 0.3s ease;
+  -o-transition: All 0.3s ease;
 }
 
 main .filter {
@@ -414,137 +538,5 @@ main #btmboxRight {
 
 main #btmboxRight #currentLocation::first-letter {
   text-transform: uppercase;
-}
-
-.switch {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  position: relative;
-  display: block;
-  width: 100px;
-  height: 30px;
-  padding: 3px;
-  background: inear-gradient(to bottom, #707070, #d1cbcb 25px);
-  background-image: -webkit-linear-gradient(top, #211d1d, #c3baba 25px);
-  border-radius: 18px;
-  -webkit-box-shadow: inset 0 -1px white, inset 0 1px 1px rgba(0, 0, 0, 0.05);
-          box-shadow: inset 0 -1px white, inset 0 1px 1px rgba(0, 0, 0, 0.05);
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
-}
-
-.switch-input {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
-}
-
-.switch-label {
-  background: rgba(0, 0, 0, 0.86);
-  border-radius: inherit;
-  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.15);
-          box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.15);
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
-  display: block;
-  height: inherit;
-  pointer-events: none;
-  text-transform: uppercase;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-
-.switch-label:before, .switch-label:after {
-  pointer-events: none;
-  position: absolute;
-  top: 50%;
-  margin-top: -.5em;
-  line-height: 1;
-  -webkit-transition: inherit;
-  transition: inherit;
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
-}
-
-.switch-label:before {
-  pointer-events: none;
-  content: attr(data-off);
-  right: 11px;
-  /* color: #aaaaaa; */
-}
-
-.switch-label:after {
-  pointer-events: none;
-  content: attr(data-on);
-  left: 11px;
-  /* color: #FFFFFF; */
-  opacity: 0;
-}
-
-.switch-input:checked ~ .switch-label {
-  /* 	background: #E1B42B; */
-  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15), inset 0 0 3px rgba(0, 0, 0, 0.2);
-          box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15), inset 0 0 3px rgba(0, 0, 0, 0.2);
-}
-
-.switch-input:checked ~ .switch-label:before {
-  opacity: 0;
-}
-
-.switch-input:checked ~ .switch-label:after {
-  opacity: 1;
-}
-
-.switch-handle {
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(40%, #FFFFFF), to(#f0f0f0));
-  background: linear-gradient(to bottom, #FFFFFF 40%, #f0f0f0);
-  background-image: -webkit-linear-gradient(top, darkgrey 85%, #f0f0f0);
-  border-radius: 100%;
-  -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
-          box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  height: 28px;
-  left: 4px;
-  position: absolute;
-  top: 4px;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-  width: 28px;
-}
-
-.switch-handle:before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin: -6px 0 0 -6px;
-  width: 12px;
-  height: 12px;
-  background: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(#FFFFFF));
-  background: linear-gradient(to bottom, #eeeeee, #FFFFFF);
-  background-image: -webkit-linear-gradient(top, grey, purple);
-  border-radius: 6px;
-  -webkit-box-shadow: inset 0 1px rgba(0, 0, 0, 0.02);
-          box-shadow: inset 0 1px rgba(0, 0, 0, 0.02);
-}
-
-.switch-input:checked ~ .switch-handle {
-  left: 74px;
-  -webkit-box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
-          box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
-}
-
-/* Transition
-========================== */
-.switch-label .switch-handle {
-  -webkit-transition: All 0.8s ease;
-  transition: All 0.8s ease;
-  -webkit-transition: All 0.3s ease;
-  -moz-transition: All 0.3s ease;
-  -o-transition: All 0.3s ease;
 }
 /*# sourceMappingURL=style.css.map */

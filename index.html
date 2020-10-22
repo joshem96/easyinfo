@@ -8,13 +8,14 @@
 <body>
 
     <!-- MAIN AREA -->
-    <main>
+    <main role="main">
         <!-- BACKGROUND IMAGE-->
-        <div class="filter"></div>  
-        <img id="nasaImage" alt="nasa image" src="Assets/space_backup.jpeg">
-
+        <div role="background" aria-label="background image">
+            <div class="filter"></div>  
+            <img id="nasaImage" alt="nasa image" src="Assets/space_backup.jpeg">
+        </div>
         <!-- TOP OF PAGE -->
-        <header style = "border: transparent;">
+        <header style = "border: transparent;" role="control" aria-label="controls">
             <span style="display: None;">easyinfo</span>
 
             <!-- USER SETTINGS -->
@@ -22,9 +23,9 @@
                 <div class="togglesWrap">
                     
                     <!-- MEASUREMENT TOGGLE -->
-                    <aside id="measurementToggleWrap">
+                    <aside id="measurementToggleWrap" aria-label="weather-measurement-type">
                         <label class="switch measurementLabel" id ="switchLabel">
-                            <input class="switch-input" type="checkbox" />
+                            <input class="switch-input" type="checkbox">
                             <span style="pointer-events: none;" class="switch-label" data-on="imperial" data-off="metric
                             "></span> 
                             <span class="switch-handle" id="measurement"></span> 
@@ -32,7 +33,7 @@
                     </aside>
 
                     <!-- TIME TOGGLE -->
-                    <aside id="timeToggleWrap">
+                    <aside id="timeToggleWrap" aria-label="time-type">
                         <label class="switch timeLabel" id ="switchLabel">
                             <input class="switch-input" type="checkbox" />
                             <span style="pointer-events: none;" class="switch-label" data-on="24 Hour" data-off="12 Hour
@@ -42,7 +43,7 @@
                     </aside>
  
                     <!-- LOCATION TOGGLE -->
-                    <aside id="userLocationWrap">
+                    <aside id="userLocationWrap" aria-label="location-chooser">
                         <label class="switch locationLabel" id ="switchLabel">
                             <input class="switch-input" type="checkbox" />
                             <span style="pointer-events: none;" class="switch-label" data-on="" data-off=""></span> 
@@ -59,7 +60,7 @@
         </header>
 
         <!-- WEATHER INFO -->
-        <aside id="topbox">
+        <aside id="topbox" role="region" aria-label="weather-information">
             <div id = "topboxLeft" style ="border: transparent">
                 <aside id ="weatherTempContainer">
                     <img src ="" id="weatherIcon"></img>
@@ -75,7 +76,7 @@
         </aside>
         
         <!-- TIME AND LOCATION -->
-        <aside id ="btmbox">
+        <aside id ="btmbox" role="region" aria-label="time-location-information">
             <div id = "btmboxLeft" style ="border: transparent">
                 <ul>
                     <li class="tempAsset1"> <span id="timeValue"></span> </li>

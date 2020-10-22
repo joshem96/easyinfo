@@ -60,7 +60,13 @@
                     weatherTemp.metric = ridNumbersAfterDecimal(weatherData.metric.main.temp);
                     weatherLocationNode.innerHTML = weatherData.metric.name;
                     locationNode.innerHTML = weatherData.metric.name;
-                    setTimeout( () => findWeatherType(),200);//is it cloudy, raining etc
+                    //setTimeout( () => findWeatherType(),200);//is it cloudy, raining etc
+                    findWeatherType(); //is it cloudy, raining etc
+                    //insert weather values depending on which system is in place
+                    windValue.innerHTML = (currentMeasurement === "metric") ? weatherSpeed.metric : weatherSpeed.imperial;
+                    weatherTempText.innerHTML = (currentMeasurement === "metric") ? weatherTemp.metric + "&#176" : weatherTemp.imperial + "&#176";
+                    (locationNode.offsetWidth >= 67) ? locationNode.style.width = "60px" : locationNode.style.width = "67";
+                    (locationNode.offsetWidth >= 67) ? locationNode.style.top = "-6px" : locationNode.style.top = "";
                 });
 
             //fetch IMPERIAL weather and location data
@@ -74,14 +80,28 @@
                         imperial: ridNumbersAfterDecimal(weatherData.imperial.wind.speed) + " mph",
                         metric: ridNumbersAfterDecimal(weatherData.imperial.wind.speed/0.62137) + " km/h"
                     }
-                })
+                    //insert weather values depending on which system is in place
+                    windValue.innerHTML = (currentMeasurement === "metric") ? weatherSpeed.metric : weatherSpeed.imperial;
+                    weatherTempText.innerHTML = (currentMeasurement === "metric") ? weatherTemp.metric + "&#176" : weatherTemp.imperial + "&#176";
+                    (locationNode.offsetWidth >= 67) ? locationNode.style.width = "60px" : locationNode.style.width = "67";
+                    (locationNode.offsetWidth >= 67) ? locationNode.style.top = "-6px" : locationNode.style.top = "";
+                });
             
-            //insert weather values depending on which system is in place
-            .then( () => {
-            windValue.innerHTML = (currentMeasurement === "metric") ? weatherSpeed.metric : weatherSpeed.imperial;
-            weatherTempText.innerHTML = (currentMeasurement === "metric") ? weatherTemp.metric : weatherTemp.imperial;
-            weatherTempText.innerHTML = weatherTempText.innerHTML + "&#176";
-            });
+                //TO DO:
+                //find out why the below code didnt work. it was almost as if the weatherdata.metric fetch was skipped cause it took too long
+                //then went on .then to the code below? strange.
+
+            // //insert weather values depending on which system is in place
+            // .then( () => {
+            // windValue.innerHTML = (currentMeasurement === "metric") ? weatherSpeed.metric : weatherSpeed.imperial;
+            // weatherTempText.innerHTML = (currentMeasurement === "metric") ? weatherTemp.metric + "&#176" : weatherTemp.imperial + "&#176";
+            // // //debugger;
+            // // if (weatherTempText.innerHTML < 1){
+            // //     debugger;
+            // // }
+            // // console.log("result:" + weatherTempText.innerHTML);
+            // // weatherTempText.innerHTML = weatherTempText.innerHTML + "&#176";
+            // });
         }
 
         //function that finds the weather type (raining, cloud, clear etc) & inserts pertaining image

@@ -1,10 +1,13 @@
 
+//VARIABLES 
+//.........
 $fontColor: rgba(243, 243, 243, 0.938);
 $testHeader: orange;
 $gridStyle: 2px solid red;
 $spaceGreen: #8bce8b;
 
-
+//MIXINS
+//.........
 @mixin terminalFontStyle(){
   text-shadow: 0 1px rgba(255, 255, 255, 0.4);
   color: $spaceGreen; 
@@ -33,8 +36,17 @@ $spaceGreen: #8bce8b;
     justify-content: center;
   }
 
+  //FONTS 
+  //.........
   @font-face {
     font-family: nunito;
-    src: url("../../../Tools_Documentation_etc/Fonts/Nunito/Nunito-Regular.ttf");
+    src: url("../Assets/Fonts/Nunito/Nunito-Regular.ttf");
+    font-weight: normal;
+  }
+
+  @font-face {
+    font-family: nunito;
+    // src: url("../../../Tools_Documentation_etc/Fonts/Nunito/Nunito-Regular.ttf");
+    src: url("../Assets/Fonts/Nunito/Nunito-SemiBold.ttf");
     font-weight: normal;
   }

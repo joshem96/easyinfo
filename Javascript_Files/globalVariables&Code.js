@@ -159,8 +159,9 @@
     async function getNasaImg(){
         nasaAPIObject = await fetch("https://api.nasa.gov/planetary/apod?&api_key=wrD5MbnYM2YSAuALIoCjMMXDz9Cg36PZnKdX3t7D");
         nasaAPIObject = await nasaAPIObject.json();
-        naseImageUrl = nasaAPIObject.url;
-        nasaImage.src = await nasaImageUrl;
+        //debugger;
+        nasaImageUrl = await nasaAPIObject.url;
+        nasaImage.src = nasaImageUrl;
     }
 
 
