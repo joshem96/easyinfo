@@ -1,0 +1,12 @@
+{
+    "manifest_version": 2,
+    "name": "easyinfo",
+    "description": "weather, location and time display",
+    "version": "1.0.0",
+    "icons": {"128":"easyinfo_Icon_128x128.png"},
+    "browser_action": {
+        "default_icon": "easyinfo_Icon_19x19.png",
+        "default_popup": "index.html"
+    },
+    "permissions": ["activeTab"]
+}
