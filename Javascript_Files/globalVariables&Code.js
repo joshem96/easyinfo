@@ -129,7 +129,7 @@
         }
     }
 
-    //check if nasa image available
+    //check if nasa image available (incase there is a problem with API)
     function nasaImageCheck(){
         setTimeout(() => {
             if (nasaImage.src.split("/").includes("undefined") || nasaImage.src.split("/").includes("video")  ) {
@@ -161,7 +161,8 @@
         nasaAPIObject = await nasaAPIObject.json();
         //debugger;
         nasaImageUrl = await nasaAPIObject.url;
-        nasaImage.src = nasaImageUrl;
+        //if their is no NASA image available for today, show backup image
+        (nasaAPIObject.code == 404) ? nasaImage.src = "Assets/space_backup.jpeg" : nasaImage.src = nasaImageUrl;
     }
 
 
