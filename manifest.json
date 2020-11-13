@@ -8,5 +8,5 @@
         "default_icon": "easyinfo_Icon_19x19.png",
         "default_popup": "index.html"
     },
-    "permissions": ["activeTab","geolocation"]
+    "permissions": ["geolocation"]
 }
