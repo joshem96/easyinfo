@@ -12,3 +12,14 @@ setTimeout(() => {
         }   
     }, 500);
 },100,);
+
+//clear loading wheel once all content has loaded
+var loadWheel = document.querySelector(".loading-wheel");
+var clearLoad = setInterval(() => {
+    var loaded = [timeNode, locationNode, dateNode, weatherTemp.metric, windValue, humidityValue].every( (node) => node.innerText != "");
+    if (loaded == true){
+        document.querySelectorAll(".info-block").forEach( (item) => item.style = "") ;
+        [loadWheel, loadWheel.parentElement].forEach( (item) => item.style = "display: none" );
+        clearInterval(clearLoad);
+    }   
+}, 100);

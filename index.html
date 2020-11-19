@@ -15,6 +15,12 @@
             <div class="filter"></div>  
             <img id="nasaImage" alt="nasa image" src="Assets/space_backup.jpeg">
         </div>
+
+        <!-- LOADING WHEEL -->
+        <div class="centered">
+            <div class="loading-wheel"></div>
+        </div>
+        
         <!-- TOP OF PAGE -->
         <header style = "border: transparent;" role="control" aria-label="controls">
             <span style="display: None;">easyinfo</span>
@@ -61,7 +67,7 @@
         </header>
 
         <!-- WEATHER INFO -->
-        <aside id="topbox" role="region" aria-label="weather-information">
+        <aside id="topbox" role="region" aria-label="weather-information" style="display: none;" class="info-block">
             <div id = "topboxLeft" style ="border: transparent">
                 <aside id ="weatherTempContainer">
                     <img src ="" id="weatherIcon"></img>
@@ -77,7 +83,7 @@
         </aside>
         
         <!-- TIME AND LOCATION -->
-        <aside id ="btmbox" role="region" aria-label="time-location-information">
+        <aside id ="btmbox" role="region" aria-label="time-location-information" style="display: none;" class="info-block">
             <div id = "btmboxLeft" style ="border: transparent">
                 <ul>
                     <li class="tempAsset1"> <span id="timeValue"></span> </li>
