@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "easyinfo",
     "description": "weather, location and time display",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "icons": {"128":"easyinfo_Icon_128x128.png"},
     "browser_action": {
         "default_icon": "easyinfo_Icon_19x19.png",

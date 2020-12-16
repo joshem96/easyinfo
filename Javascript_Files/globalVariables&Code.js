@@ -132,7 +132,7 @@
     //check if nasa image available (incase there is a problem with API)
     function nasaImageCheck(){
         setTimeout(() => {
-            if (nasaImage.src.split("/").includes("undefined") || nasaImage.src.split("/").includes("video")  ) {
+            if (nasaImage.src.includes("undefined") || nasaImage.src.includes("video") || nasaImage.src.includes("youtube") || nasaAPIObject.code == 404 ) {
                 nasaImage.src = "Assets/space_backup.jpeg";
             }
             else if (nasaImageUrl != undefined){
@@ -159,10 +159,10 @@
     async function getNasaImg(){
         nasaAPIObject = await fetch("https://api.nasa.gov/planetary/apod?&api_key=wrD5MbnYM2YSAuALIoCjMMXDz9Cg36PZnKdX3t7D");
         nasaAPIObject = await nasaAPIObject.json();
-        //debugger;
-        nasaImageUrl = await nasaAPIObject.url;
+        debugger;
+        nasaImageUrl = nasaAPIObject.url;
         //if their is no NASA image available for today, show backup image
-        (nasaAPIObject.code == 404) ? nasaImage.src = "Assets/space_backup.jpeg" : nasaImage.src = nasaImageUrl;
+        nasaImageCheck();
     }
 
 
